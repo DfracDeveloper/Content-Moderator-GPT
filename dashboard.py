@@ -85,7 +85,7 @@ st.title("Content Correction with GPT")
 gpt_image = Image.open('gpt-image.jpg')
 st.image(gpt_image)
 st.subheader("Intoduction")
-st.write("This tool leverage the power of GPT-3, Natural Language Processing to process text and translates the document into 3 languages supported, i.e. English, Hindi & Urdu. The tool even helps correcting the grammatical errors and rephrasing the content, if needed.")
+st.write("This tool leverage the power of GPT-3, Natural Language Processing to process text and translate the document into 3 languages supported, English, Hindi & Urdu. The tool even helps correcting the grammatical errors and rephrasing the content, if needed.")
 st.write("___________________________")
 
 # Form 
