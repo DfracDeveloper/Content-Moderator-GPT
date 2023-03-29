@@ -93,7 +93,7 @@ uploaded_file = st.file_uploader("Choose a doc file to upload", type=['docx'])
 action = st.radio("Select the action you want to take", ('Correction', 'Translation'))
 
 if action == "Correction":
-    query = "Please correct the grammar and make it better"
+    query = "Please correct the grammar in the same language and make it better"
 elif action == "Translation":
     lang = st.radio("Please select the translation language of your document?", ("Hindi", "English", "Urdu"))
     if lang:
