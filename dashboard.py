@@ -111,6 +111,13 @@ if st.button("Analyze"):
             while load_screen == 1:
                 with st.spinner("Processing data, please wait!"):
                     doc_text, heading = load_doc(uploaded_file)
+                    # Count the number of words
+                    word_count = len(doc_text.split())
+                    # Check if the word count exceeds 500
+                    if word_count > 500:
+                        st.write("Total words in the file: " + str(word_count))
+                        st.error("Error: Document word count exceeds 500 words.")
+                        raise SystemExit
                     input = doc_text + " " + query
                     answer = chatgpt_api(input)
                     load_screen = 0
