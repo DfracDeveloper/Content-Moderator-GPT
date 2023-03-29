@@ -72,7 +72,7 @@ def chatgpt_api(query):
 
 # Function to use ChatGPT to generate thread
 def gen_thread(article):
-    query = article + " " + "make twitter thread of 5 tweets from this article in the inputted language"
+    query = article + " " + "make twitter thread of 5 tweets from this article in the same language"
     output = openai.ChatCompletion.create(model = "gpt-3.5-turbo",
                                                 # system, user, assistant
                                                 messages = [{"role" : "user", "content" : query}]
