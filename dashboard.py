@@ -72,7 +72,7 @@ def chatgpt_api(query):
 
 # Function to use ChatGPT to generate thread
 def gen_thread(article):
-    query = article + " " + "make twitter thread of 5 tweets from this article in the same language"
+    query = article + " " + "make twitter thread of 5 tweets from this article in the inputted language"
     output = openai.ChatCompletion.create(model = "gpt-3.5-turbo",
                                                 # system, user, assistant
                                                 messages = [{"role" : "user", "content" : query}]
@@ -93,7 +93,7 @@ uploaded_file = st.file_uploader("Choose a doc file to upload", type=['docx'])
 action = st.radio("Select the action you want to take", ('Correction', 'Translation'))
 
 if action == "Correction":
-    query = "Please correct the grammar in the same language and make it better"
+    query = "Please correct the grammar of the article in the inputted language and make it better"
 elif action == "Translation":
     lang = st.radio("Please select the translation language of your document?", ("Hindi", "English", "Urdu"))
     if lang:
