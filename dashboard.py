@@ -87,9 +87,17 @@ st.image(gpt_image)
 st.subheader("Intoduction")
 st.write("This tool leverage the power of GPT-3, Natural Language Processing to process text and translate the document into 3 languages supported, English, Hindi & Urdu. The tool even helps correcting the grammatical errors and rephrasing the content, if needed.")
 st.write("___________________________")
-
+st.caption("Either upload a document or write yout text in the textbox")
 # Form 
 uploaded_file = st.file_uploader("Choose a doc file to upload", type=['docx'])
+st.write("___________________________")
+
+txt_area = st.text_area('Enter your text')
+if txt_area:
+    txt_area_flag = 1
+else:
+    txt_area_flag = 0
+
 action = st.radio("Select the action you want to take", ('Correction', 'Translation'))
 
 if action == "Correction":
@@ -106,11 +114,14 @@ thread_status = st.checkbox('Do you want to generate an automated thread of the 
 # Button to search
 if st.button("Analyze"):
     if query != "":
-        if uploaded_file is not None:
+        if uploaded_file is not None or txt_area_flag == 1:
             load_screen = 1
             while load_screen == 1:
                 with st.spinner("Processing data, please wait!"):
-                    doc_text, heading = load_doc(uploaded_file)
+                    if txt_area_flag != 1:
+                        doc_text, heading = load_doc(uploaded_file)
+                    else:
+                        doc_text = txt_area
                     # Count the number of words
                     word_count = len(doc_text.split())
                     # Check if the word count exceeds 500
